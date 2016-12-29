@@ -1,6 +1,6 @@
 # MySky
 Weather where I care
-Changes:
+V0.01:
 -Removed template references
 -Started putting things where they need to go
 -Fixed nav and added correct names
