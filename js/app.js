@@ -4,11 +4,14 @@ var app = angular.module('MySky', ['ngRoute', 'ngAnimate']);
             .when("/", {
                 templateUrl : "js/views/home.html"
             })
-            .when("/portfolio", {
-                templateUrl : "js/views/portfolio.html"
+            .when("/holland", {
+                templateUrl : "js/views/holland.html"
             })
-            .when("/contact", {
-                templateUrl : "js/views/contact.html"
+            .when("/denver", {
+                templateUrl : "js/views/denver.html"
+            })
+            .when("/chicago", {
+                templateUrl : "js/views/chicago.html"
             })
             .otherwise({
                 redirectTo: '/'

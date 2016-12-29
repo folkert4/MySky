@@ -28,6 +28,7 @@
     <meta name="author" content="James W. Folkert">
     <title>MySky | Weather where I care</title>
     <meta name="description" content="HyperLocal weather in places I care about">
+    <link rel="amphtml" href="AMPindex.html">
     
 
     <!-- Bootstrap core CSS -->
@@ -38,23 +39,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Ubuntu" rel="stylesheet">
   </head>
 
   <body ng-app="MySky">
-    
-      <nav class="navbar navbar-static-top">
-        <div class="box">
-        <div class='wave -one hidden-xs'></div>
-        <div class='wave -two hidden-xs'></div>
-        <div class='wave -three hidden-xs'></div>
-        <div class='wave -four hidden-xs'></div>
-        <div class='wave -five hidden-xs'></div>
-        <div class='wave -six hidden-xs'></div>
-        <div class='wave -seven hidden-xs'></div>
-        <div class="container title">
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -62,18 +51,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">James W. Folkert</a>
+            <a class="navbar-brand" href="#/">MySky</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse" ng-controller="NavController">
             <ul class="nav navbar-nav">
-              <li><a ng-class="{ active: isActive('/')}" href="#/">Home</a></li>
-              <li><a ng-class="{ active: isActive('/portfolio')}" href="#/portfolio">Portfolio</a></li>
-              <li><a ng-class="{ active: isActive('/contact')}" href="#/contact">Contact</a></li>
+              <li ng-class="{ active: isActive('/')}" class="nav-item"><a class="nav-link" href="#/">Current Location</a></li>
+              <li ng-class="{ active: isActive('/denver')}" class="nav-item"><a a class="nav-link" href="#/denver">Denver, CO</a></li>
+              <li ng-class="{ active: isActive('/holland')}" class="nav-item"><a a class="nav-link" href="#/holland">Holland, MI</a></li>
+              <li ng-class="{ active: isActive('/chicago')}" class="nav-item"><a a class="nav-link" href="#/chicago">Chicago, IL</a></li>
             </ul>
-              <medialinks></medialinks>
+            <!--<medialinks></medialinks> WILL ADD ABILITY TO TWEET THE WEATHER-->
           </div><!--/.nav-collapse -->
         </div>
-          </div>
       </nav>
     
     <div class="container">
@@ -94,7 +83,7 @@
     <script src="js/controllers/NavController.js"></script>
 
     <!-- Directives -->
-    <script src="js/directives/medialinks.js"></script>
+    <!--<script src="js/directives/medialinks.js"></script>-->
 
   </body>
 </html>
