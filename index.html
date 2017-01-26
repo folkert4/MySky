@@ -66,7 +66,7 @@
       </nav>
     
     <div class="container">
-        <div ng-view class="view-animate"></div>
+        <div ng-view class="view-animate" ng-controller="WeatherCtrl"></div>
     </div><!-- /.container -->
 
 
@@ -81,8 +81,14 @@
 
     <!-- controllers -->
     <script src="js/controllers/NavController.js"></script>
+    <script src="js/controllers/WeatherController.js"></script>
 
+    <!-- Vendor -->
+    <script type='text/javascript' src='js/vendor/lodash.min.js'></script>
+    <script type='text/javascript' src='js/vendor/angular-dark-sky.min.js'></script>
+    <script type='text/javascript' src='js/vendor/angular-dark-sky.js'></script>
     <!-- Directives -->
+    <script type='text/javascript' src='js/directives/WView.js'></script>
     <!--<script src="js/directives/medialinks.js"></script>-->
 
   </body>
