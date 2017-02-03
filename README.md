@@ -1,6 +1,15 @@
 # MySky
 ## Weather where I care
 
+### V0.90:
+1. Basic functions for data extraction and formatting done
+2. All data points needed are pulled
+3. Finished with major app architecture in place
+4. most data points are displayed
+* ready for styling!
+* ready to add icon directives!
+* ready to deploy barebones to web(if I don't get lazy (I will get lazy))
+
 ### V0.10:
 1. added files from [deanbot's api wrapper](https://github.com/deanbot/angular-dark-sky)
   1. integrated into existing NG
@@ -24,4 +33,3 @@ _____
 * [darksky.net](https://darksky.net)
 * [deanbot's excellent darksky api wrapper](https://github.com/deanbot/angular-dark-sky) (used under MIT license)
 * [Erik FLowers' icons (used in api wrapper)](http://erikflowers.github.io/weather-icons/) (used under MIT license)
-_____
