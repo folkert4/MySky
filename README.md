@@ -1,6 +1,14 @@
 # MySky
 ## Weather where I care
 
+### V1.0:
+#### ...VICE CITY STYLE...
+1. Icon directives are working
+2. rough styling is done. site in daily use by me
+3. credit to darksky is correctly being displayed
+4. Identified a pesky bug that made text transformations blur briefly in webkit browsers; http://stackoverflow.com/questions/37856596/text-is-blurred-when-has-transform-translate-and-it-is-adjacent-to-another-elem
+  1. Known issue with hardware acceleration and can't be fixed if you use the 'transform' css property *shakes fist angrily*
+
 ### V0.90:
 1. Basic functions for data extraction and formatting done
 2. All data points needed are pulled

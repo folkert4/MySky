@@ -1,58 +1,73 @@
-<div ng-if="!dataflag" class="view-animate-container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="errorTitle">We are having some issues accessing the DarkSky API at this time, sorry!</h1>
+<div>
+    <div ng-if="!dataflag" class="view-animate-container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="errorTitle">We are having some issues accessing the DarkSky API at this time, sorry!</h1>
+            </div>
         </div>
     </div>
-</div>
-<div ng-if="dataflag" class="view-animate-container">
-    <div class="row">
-        <div class="col-md-4">
-            <p class="currentDateBanner">Current time: {{currentTime | date:'HH:mm EEEE, MMMM d'}}</p>
+    <div ng-if="dataflag" class="view-animate-container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="currentDateBanner">{{currentTime | date:'HH:mm EEEE, MMMM d'}}</p>
+            </div>
         </div>
-        <div class="col-md-8">
-            <p>icon</p>
+        <div class="row">
+            <div class="col-md-2">
+                <p class="locationPrimer hidden-xs">In </p>
+                <h1 class="titleLocation">{{titleLocation}}</h1>
+            </div>
+            <div class="col-md-10" id="minSumId">
+                <dark-sky-icon id="minuteIcon" icon="{{ currentweather.minutely.icon }}"></dark-sky-icon>
+                <h2 class="minSum">&nbsp; {{currentweather.minutely.summary}}</h2>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-            <p class="locationPrimer">In </p>
-            <h1 class="titleLocation">{{titleLocation}}</h1>
+        <div class="row tempRow">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <h4 class="temp">It feels like </h4>
+                <h3 class="apparentTemp"> {{currentweather.currently.apparentTemperature | round}} &deg;C</h3>
+            </div>
+            <div class="col-md-4">
+                <h4 class="temp">But it really is </h4>
+                <h3 class="realTemp"> {{currentweather.currently.temperature | round}} &deg;C</h3>
+            </div>
+            <div class="col-md-2">
+            </div>
         </div>
-        <div class="col-md-10">
-            <h2 class="minSum">{{currentweather.minutely.summary}}</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="windText">Winds are {{windText}}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="aparentTemp temp">It feels like {{currentweather.currently.apparentTemperature | round}} &deg;C</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="weekText">{{dailyweather.daily.summary}}</h5>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h3 class="realTemp temp">But it really is {{currentweather.currently.temperature | round}} &deg;C</h3>
+        <div class="row futureRow">
+            <div class="col-md-4">
+                <p class="dayLabel">Today:</p>
+                <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[0].icon }}"></dark-sky-icon>
+                <p class "futureTemps">{{dailyweather.daily.data[0].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[0].apparentTemperatureMax | round}}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="dayLabel">Tomorrow:</p>
+                <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[1].icon }}"></dark-sky-icon>
+                <p class "futureTemps">{{dailyweather.daily.data[1].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[1].apparentTemperatureMax | round}}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="dayLabel">In 48 hours:</p>
+                <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[2].icon }}"></dark-sky-icon>
+                <p class "futureTemps">{{dailyweather.daily.data[2].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[3].apparentTemperatureMax | round}}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p class="windText">Winds are {{windText}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="weekText">{{dailyweather.daily.summary}}</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p class="dayLabel">Tomorrow:</p>
-            <p>icon</p>
-        </div>
-        <div class="col-md-4">
-            <p class="dayLabel">In 48 hours:</p>
-            <p>icon</p>
-        </div>
-        <div class="col-md-4">
-            <p class="dayLabel">In 72 hours:</p>
-            <p>icon</p>
+        <div class="noaaRow">
+            <div class="col-md-12">
+                <a id="noaaLink" href="http://www.wpc.ncep.noaa.gov/noaa/noaa.gif">NOAA Daily Forecast</a>
+                <br />
+            </div>
         </div>
     </div>
 </div>

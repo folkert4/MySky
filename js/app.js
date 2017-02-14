@@ -78,13 +78,12 @@ app.directive("wView", function() {
                     .then(function(dataObj) {
                         $scope.dataflag = true;
                         $scope.currentweather = dataObj;
-                        $scope.currentTime = ($scope.currentweather.minutely.data[0].time * 1000);
+                        $scope.currentTime = new Date();
                         $scope.windText = convertWindBearing($scope.currentweather.currently.windBearing, $scope.currentweather.currently.windSpeed);
                         console.log($scope.currentweather);
                     })
                     .catch(function() {
                         $scope.currentweather = null;
-                        $scope.windText = "a milli kph from everywhere";
                         $scope.dataflag = false;
                         console.warn('data not found');
                     });
@@ -95,7 +94,6 @@ app.directive("wView", function() {
                     })
                     .catch(function() {
                         $scope.dailyweather = null;
-                        $scope.windText = "a milli kph from everywhere";
                         $scope.dataflag = false;
                         console.warn('data not found');
                     });
@@ -104,23 +102,23 @@ app.directive("wView", function() {
             function convertWindBearing(bearing, windspeed) {
                 var txt = "";
                 if (0 <= bearing && bearing < 22.5) {
-                    txt = windspeed + " Kph from the North";
+                    txt = windspeed + " Kph from the north";
                 } else if (22.5 <= bearing && bearing < 67.5) {
-                    txt = windspeed + " Kph out of the Northeast";
+                    txt = windspeed + " Kph out of the northeast";
                 } else if (67.5 <= bearing && bearing < 112.5) {
-                    txt = windspeed + " Kph from the East";
+                    txt = windspeed + " Kph from the east";
                 } else if (112.5 <= bearing && bearing < 157.5) {
-                    txt = windspeed + " Kph out of the Southeast";
+                    txt = windspeed + " Kph out of the southeast";
                 } else if (157.5 <= bearing && bearing < 202.5) {
-                    txt = windspeed + " Kph from the South";
+                    txt = windspeed + " Kph from the south";
                 } else if (202.5 <= bearing && bearing < 247.5) {
-                    txt = windspeed + " Kph out of the Southwest";
+                    txt = windspeed + " Kph out of the southwest";
                 } else if (247.5 <= bearing && bearing < 292.5) {
-                    txt = windspeed + " Kph from the West";
+                    txt = windspeed + " Kph from the west";
                 } else if (292.5 <= bearing && bearing < 337.5) {
-                    txt = windspeed + " Kph out of the Northwest";
+                    txt = windspeed + " Kph out of the northwest";
                 } else if (337.5 <= bearing && bearing < 360) {
-                    txt = windspeed + " Kph from the North";
+                    txt = windspeed + " Kph from the north";
                 }
                 return txt;
             }

@@ -1,0 +1,37 @@
+a#noaaLink {
+    text-align: center;
+    text-decoration: none;
+}
+
+#minuteIcon {
+    padding: 0px 5px;
+    font-size: 50px;
+    background-color: #18D8F0;
+    color: #F090C0;
+    text-shadow: 10px 7px 1px rgba(0, 0, 0, 0.5);
+}
+
+.dayLabel {
+    text-decoration: underline;
+    color: #18D8F0;
+}
+
+.titleLocation,
+.locationPrimer,
+.minSum {
+    font-family: 'Limelight', cursive;
+    color: #18D8F0;
+}
+
+.futureIcon {
+    padding: 3px;
+    font-size: 30px;
+    background-color: #18D8F0;
+    color: #F090C0;
+    text-shadow: 6px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.apparentTemp,
+.realTemp {
+    margin-top: 6px;
+}

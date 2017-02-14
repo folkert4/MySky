@@ -5,22 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
-    <!--[if IE]><link rel="shortcut icon" href="assets/images/fav/favicon.ico"><![endif]-->
-    <!--Chrome/Android -->
+
     <meta name="theme-color" content="#fff">
-    <!--    <link rel="icon" href="assets/images/fav/favicon.png">-->
-
-
-    <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#fff">
-    <!--    <meta name="msapplication-config" content="browserconfig.xml" />-->
-
-    <!-- iOS Safari -->
-    <!--    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon-precomposed" href="assets/images/fav/apple-touch-icon-precomposed.png">-->
 
     <meta name="HandheldFriendly" content="true" />
     <meta name="creator" content="James W. Folkert">
@@ -31,18 +19,24 @@
     <link rel="amphtml" href="AMPindex.html">
 
 
-    <!-- Bootstrap core CSS -->
+    <!-- core CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
     <link href="css/animation.css" rel="stylesheet">
 
     <!-- angularjs -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
+    <link href="css/weather-icons.min.css" rel="stylesheet">
+    <link href="css/weather-icons-wind.min.css" rel="stylesheet">
 </head>
 
 <body ng-app="MySky">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,12 +49,12 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse" ng-controller="NavController">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: isActive('/')}" class="nav-item"><a class="nav-link" href="#/">Current Location</a></li>
-                    <li ng-class="{ active: isActive('/denver')}" class="nav-item"><a class="nav-link" href="#/denver">Denver, CO</a></li>
-                    <li ng-class="{ active: isActive('/holland')}" class="nav-item"><a class="nav-link" href="#/holland">Holland, MI</a></li>
-                    <li ng-class="{ active: isActive('/chicago')}" class="nav-item"><a class="nav-link" href="#/chicago">Chicago, IL</a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{ active: isActive('/')}" href="#/">Current Location</a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{ active: isActive('/denver')}" href="#/denver">Denver, CO</a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{ active: isActive('/holland')}" href="#/holland">Holland, MI</a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{ active: isActive('/chicago')}" href="#/chicago">Chicago, IL</a></li>
                 </ul>
-                <!--<medialinks></medialinks> WILL ADD ABILITY TO TWEET THE WEATHER-->
+                <medialinks></medialinks>
             </div>
             <!--/.nav-collapse -->
         </div>
@@ -69,7 +63,14 @@
     <div class="container">
         <div ng-view class="view-animate"></div>
     </div>
-    <!-- /.container -->
+    <footer>
+        <ul>
+            <li>&copy; 2017 James W. Folkert
+                <li>
+                    <a href="https://darksky.net/poweredby/" class="vendorlink">Powered by Dark Sky</a>
+                </li>
+        </ul>
+    </footer>
 
 
     <!-- JavaScript -->
@@ -79,21 +80,15 @@
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
-    <!-- modules -->
+    <!--NG -->
     <script src="js/app.js"></script>
-
-    <!-- controllers -->
     <script src="js/controllers/NavController.js"></script>
+    <script src="js/directives/medialinks.js"></script>
 
     <!-- Vendor -->
     <script type='text/javascript' src='js/vendor/lodash.min.js'></script>
     <script type='text/javascript' src='js/vendor/angular-dark-sky.min.js'></script>
     <script type='text/javascript' src='js/vendor/angular-dark-sky.js'></script>
-
-    <!-- Directives -->
-    <!--<script type='text/javascript' src='js/directives/WView.js'></script>-->
-    <!--<script src="js/directives/medialinks.js"></script>-->
 
 </body>
 

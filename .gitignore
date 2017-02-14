@@ -54,8 +54,5 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 /.vscode/*
-/assets/*
-/js/tests/*
-/js/.*
 *.doc
 *.docx
