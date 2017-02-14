@@ -27,7 +27,13 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
+node_modules/bootstrap/docs
+node_modules/bootstrap/fonts
+node_modules/bootstrap/grunt
+node_modules/bootstrap/js
+node_modules/bootstrap/less
+node_modules/bootstrap/node_modules
+
 jspm_packages
 
 # Optional npm cache directory
