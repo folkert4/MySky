@@ -6,7 +6,7 @@
             </div>
         </div>
     </div>
-    <div ng-if="dataflag" class="view-animate-container">
+    <div ng-if="dataflag" class="ng-cloak view-animate-container">
         <div class="row">
             <div class="col-md-12">
                 <p class="currentDateBanner">{{currentTime | date:'HH:mm EEEE, MMMM d'}}</p>
@@ -22,7 +22,16 @@
                 <h2 class="minSum">&nbsp; {{currentweather.minutely.summary}}</h2>
             </div>
         </div>
-        <div class="row tempRow">
+        <div ng-if="!windChillFlag" class=" ng-cloak row tempRow">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h3 class="actualTemp"> {{currentweather.currently.temperature | round}} &deg;C</h3>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div ng-if="windChillFlag" class="ng-cloak row tempRow windTemp">
             <div class="col-md-2">
             </div>
             <div class="col-md-4">
@@ -38,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="windText">Winds are {{windText}}</p>
+                <p class="windText">Wind: {{windText}}</p>
             </div>
         </div>
         <div class="row">

@@ -34,6 +34,7 @@ app.directive("wView", function() {
             $scope.dailyweather = null;
             $scope.weatheralerts = null;
             $scope.dataflag = true;
+            $scope.windChillFlag = false;
             $scope.windText = "";
             $scope.currentTime = new Date();
 
@@ -79,7 +80,11 @@ app.directive("wView", function() {
                         $scope.dataflag = true;
                         $scope.currentweather = dataObj;
                         $scope.currentTime = new Date();
-                        $scope.windText = convertWindBearing($scope.currentweather.currently.windBearing, $scope.currentweather.currently.windSpeed);
+                        $scope.windText = convertWindBearing($scope.currentweather.currently.windBearing, Math.round($scope.currentweather.currently.windSpeed));
+                        if (Math.abs($scope.currentweather.currently.apparentTemperature - $scope.currentweather.currently.temperature) > 1) {
+                            $scope.windChillFlag = true;
+                            console.log("this");
+                        };
                         console.log($scope.currentweather);
                     })
                     .catch(function() {
@@ -91,6 +96,7 @@ app.directive("wView", function() {
                     .then(function(dataObj) {
                         $scope.dailyweather = dataObj;
                         console.log($scope.dailyweather);
+
                     })
                     .catch(function() {
                         $scope.dailyweather = null;
