@@ -1,58 +1,45 @@
 <div>
-    <div ng-if="!dataflag" class="ng-cloak view-animate-container">
+    <div ng-if="!dataflag" class="ng-cloak view-animate-container mainView">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="errorTitle">We are having some issues accessing the DarkSky API at this time, sorry!</h1>
             </div>
         </div>
     </div>
-    <div ng-if="dataflag" class="ng-cloak view-animate-container">
-        <div class="row">
-            <div class="col-md-12">
-                <p class="currentDateBanner">{{currentTime | date:'HH:mm EEEE, MMMM d'}}</p>
-            </div>
-        </div>
+    <div ng-if="dataflag" class="ng-cloak view-animate-container mainView">
         <div class="row">
             <div class="col-md-2">
                 <p class="locationPrimer hidden-xs">In </p>
                 <h1 class="titleLocation">{{titleLocation}}</h1>
             </div>
             <div class="col-md-10" id="minSumId">
-                <dark-sky-icon id="minuteIcon" icon="{{ currentweather.minutely.icon }}"></dark-sky-icon>
-                <h2 class="minSum">&nbsp; {{currentweather.minutely.summary}}</h2>
-            </div>
-        </div>
-        <div ng-if="!windChillFlag" class=" ng-cloak row tempRow">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-                <h3 class="actualTemp"> {{currentweather.currently.temperature | round}} &deg;C</h3>
-            </div>
-            <div class="col-md-4">
-            </div>
-        </div>
-        <div ng-if="windChillFlag" class="ng-cloak row tempRow windTemp">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-4">
-                <h4 class="temp">It feels like </h4>
-                <h3 class="apparentTemp"> {{currentweather.currently.apparentTemperature | round}} &deg;C</h3>
-            </div>
-            <div class="col-md-4">
-                <h4 class="temp">But it really is </h4>
-                <h3 class="realTemp"> {{currentweather.currently.temperature | round}} &deg;C</h3>
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="windText">Wind: {{windText}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h5 class="weekText">{{dailyweather.daily.summary}}</h5>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <dark-sky-icon id="minuteIcon" icon="{{ currentweather.minutely.icon }}"></dark-sky-icon>
+                        <h2 class="minSum">&nbsp; {{currentweather.minutely.summary}}</h2>
+                    </div>
+                </div>
+                <div ng-if="!windChillFlag" class="row ng-cloak row tempRow">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <h3 class="actualTemp">It's {{currentweather.currently.temperature | round}} &deg;C</h3>
+                    </div>
+                </div>
+                <div ng-if="windChillFlag" class="row ng-cloak row tempRow windTemp">
+                    <div class="col-sm-4">
+                        <h4 class="temp">It feels like </h4>
+                        <h3 class="apparentTemp"> {{currentweather.currently.apparentTemperature | round}} &deg;C</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4 class="temp">But it really is </h4>
+                        <h3 class="realTemp"> {{currentweather.currently.temperature | round}} &deg;C</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h5 class="weekText">{{dailyweather.daily.summary}}</h5>
+                        <p class="windText">Winds: {{windText}}</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row futureRow">
@@ -60,22 +47,26 @@
                 <p class="dayLabel">Today:</p>
                 <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[0].icon }}"></dark-sky-icon>
                 <p class "futureTemps">{{dailyweather.daily.data[0].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[0].apparentTemperatureMax | round}}</p>
+                <p class="futureTextSmall">{{dailyweather.daily.data[0].summary}}</p>
             </div>
             <div class="col-md-4">
                 <p class="dayLabel">Tomorrow:</p>
                 <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[1].icon }}"></dark-sky-icon>
                 <p class "futureTemps">{{dailyweather.daily.data[1].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[1].apparentTemperatureMax | round}}</p>
+                <p class="futureTextSmall">{{dailyweather.daily.data[1].summary}}</p>
             </div>
             <div class="col-md-4">
                 <p class="dayLabel">In 48 hours:</p>
                 <dark-sky-icon class="futureIcon" icon="{{ dailyweather.daily.data[2].icon }}"></dark-sky-icon>
                 <p class "futureTemps">{{dailyweather.daily.data[2].apparentTemperatureMin | round}} &middot; {{dailyweather.daily.data[3].apparentTemperatureMax | round}}</p>
+                <p class="futureTextSmall">{{dailyweather.daily.data[2].summary}}</p>
             </div>
         </div>
         <div class="noaaRow">
             <div class="col-md-12">
                 <a id="noaaLink" href="http://www.wpc.ncep.noaa.gov/noaa/noaa.gif">NOAA Daily Forecast</a>
                 <br />
+                <p class="currentDateBanner">Current as of: {{currentTime | date:'HH:mm EEEE, MMMM d'}}</p>
             </div>
         </div>
     </div>

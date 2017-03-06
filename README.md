@@ -1,6 +1,12 @@
 # MySky
 ## Weather where I care
 
+### V1.1:
+1. Changed to correctly use Bootstrap's offset columns instead of empty col's
+2. Added information to the future days (seemed lacking in info)
+3. Moved the datetime and made it more clear on its purpose
+4. various QOL changes
+
 ### V1.0:
 #### ...VICE CITY STYLE...
 1. Icon directives are working

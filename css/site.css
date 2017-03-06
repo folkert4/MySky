@@ -35,3 +35,12 @@ a#noaaLink {
 .realTemp {
     margin-top: 6px;
 }
+
+.futureTextSmall {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.mainView {
+    padding-top: 20px;
+}
